@@ -1,12 +1,12 @@
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
 
 export const Modal = (props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  console.log(errors);
+  } = useForm()
+  console.log(errors)
 
   return (
     <>
@@ -84,5 +84,5 @@ export const Modal = (props) => {
       </div>
       <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
     </>
-  );
-};
+  )
+}

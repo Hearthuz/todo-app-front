@@ -1,66 +1,66 @@
-import React, { useState } from "react";
-import { deleteList, updateList } from "services";
-import { Modal } from "components";
+import React, { useState } from "react"
+import { deleteList, updateList } from "services"
+import { Modal } from "components"
 
 export const Todolist = ({ list, onChange }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [showDropDown, setShowDropDown] = useState(false);
-  const [checked, setChecked] = useState(list.status === "Todo" ? false : true);
+  const [showModal, setShowModal] = useState(false)
+  const [showDropDown, setShowDropDown] = useState(false)
+  const [checked, setChecked] = useState(list.status === "Todo" ? false : true)
 
-  console.log(list.id);
+  console.log(list.id)
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
+    setChecked(e.target.checked)
     if (e.target.checked === true) {
-      await updateList(list.id, { status: "In Progress" });
-      onChange();
+      await updateList(list.id, { status: "In Progress" })
+      onChange()
     } else {
-      await updateList(list.id, { status: "Todo" });
-      onChange();
+      await updateList(list.id, { status: "Todo" })
+      onChange()
     }
-  };
+  }
 
   const onDone = async () => {
     const status = {
       status: "Done",
-    };
-    await updateList(list.id, status);
-    alert("Sucessfully");
-    onChange();
-  };
+    }
+    await updateList(list.id, status)
+    alert("Sucessfully")
+    onChange()
+  }
 
   const onUpdate = async (data) => {
     try {
-      const title = data.title !== "" ? data.title : list.title;
-      const date = data.date !== "" ? data.date : list.date;
+      const title = data.title !== "" ? data.title : list.title
+      const date = data.date !== "" ? data.date : list.date
       const description =
-        data.description !== "" ? data.description : list.description;
+        data.description !== "" ? data.description : list.description
       const newList = {
         title: title,
         date: date,
         description: description,
-      };
-      onHide();
-      await updateList(list.id, newList);
-      onChange();
+      }
+      onHide()
+      await updateList(list.id, newList)
+      onChange()
     } catch (err) {
-      console.error(err);
+      console.error(err)
     }
-  };
+  }
 
   const onDelete = async (e) => {
     try {
-      e.preventDefault();
-      deleteList(list.id);
-      alert("Sucessfully Deleted");
-      onChange();
+      e.preventDefault()
+      deleteList(list.id)
+      alert("Sucessfully Deleted")
+      onChange()
     } catch (err) {
-      console.error(err);
+      console.error(err)
     }
-  };
+  }
 
   const onHide = () => {
-    setShowModal(false);
-  };
+    setShowModal(false)
+  }
 
   return (
     <>
@@ -162,5 +162,5 @@ export const Todolist = ({ list, onChange }) => {
         />
       ) : null}
     </>
-  );
-};
+  )
+}

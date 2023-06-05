@@ -1,11 +1,11 @@
-import React from "react";
-import { FileAddOutlined, FileDoneOutlined } from "@ant-design/icons";
-import type { MenuProps } from "antd";
-import { Layout, Menu } from "antd";
-import { Todo } from "./Todo";
+import React from "react"
+import { FileAddOutlined, FileDoneOutlined } from "@ant-design/icons"
+import type { MenuProps } from "antd"
+import { Layout, Menu } from "antd"
+import { Todo } from "./Todo"
 
-const { Sider } = Layout;
-type MenuItem = Required<MenuProps>["items"][number];
+const { Sider } = Layout
+type MenuItem = Required<MenuProps>["items"][number]
 
 export const Form: React.FC = () => {
   function getItem(
@@ -21,22 +21,22 @@ export const Form: React.FC = () => {
       children,
       label,
       type,
-    } as MenuItem;
+    } as MenuItem
   }
   const items: MenuProps["items"] = [
     getItem("Task", "1", <FileAddOutlined />),
     getItem("Done Task", "2", <FileDoneOutlined />),
-  ];
+  ]
   return (
     <Layout>
       <Sider
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
-          console.log(broken);
+          console.log(broken)
         }}
         onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
+          console.log(collapsed, type)
         }}
         className="bg-base-300"
       >
@@ -55,5 +55,5 @@ export const Form: React.FC = () => {
         <Todo />
       </Layout>
     </Layout>
-  );
-};
+  )
+}
