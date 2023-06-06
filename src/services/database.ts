@@ -3,6 +3,7 @@ import { ListInput } from "types"
 
 const jsonHeaders = {
   "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "*",
 }
 
 const handleStatus = async (res: Response) => {
