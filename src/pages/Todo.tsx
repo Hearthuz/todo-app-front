@@ -21,7 +21,7 @@ export const Todo = () => {
   useEffect(() => {
     async function getLists() {
       const lists = await getList()
-      dispatch(setTodo(lists))
+      dispatch(setTodo(lists.Items))
       dispatch(setChange(false))
     }
     getLists()

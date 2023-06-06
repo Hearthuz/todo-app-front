@@ -26,6 +26,16 @@ export const Modal = (props) => {
             <div className="relative p-6 flex-auto">
               <div className="w-full text-base-200">
                 <div className="relative mt-1 rounded-md shadow-sm">
+                  <label className="block text-md font-medium my-2">ID</label>
+                  <input
+                    type="text"
+                    className="w-full rounded-md border p-3 pr-12 outline-none text-primary ring-1 ring-primary sm:text-sm"
+                    placeholder="Input Title"
+                    {...register("id", {
+                      required: props.required,
+                      maxLength: 80,
+                    })}
+                  />
                   <label className="block text-md font-medium my-2">
                     Title
                   </label>

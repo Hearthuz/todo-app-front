@@ -7,7 +7,6 @@ export const Todolist = ({ list, onChange }) => {
   const [showDropDown, setShowDropDown] = useState(false)
   const [checked, setChecked] = useState(list.status === "Todo" ? false : true)
 
-  console.log(list.id)
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked)
     if (e.target.checked === true) {
